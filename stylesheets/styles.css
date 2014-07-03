@@ -827,11 +827,7 @@ html
 {
     height: 100%;
 }
-section
-{
-    height: 100%;
-}
-.first-page:before
+section:before
 {
     position: fixed;
     z-index: -1;
@@ -842,68 +838,43 @@ section
     margin: -15px -15px 0 -15px;
 
     content: '';
-
-    background-image: url('/images/first-background2.png');
+    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
 
     -webkit-filter: blur(15px);
+    filter: url('/blur.svg#blur');
+    
+    
+}
+.first-page:before
+{
+
+    background-image: url('/images/first-background2.png');
 }
 
 
 .second-page:before
 {
-    position: fixed;
-    z-index: -1;
-    right: 0;
-    left: 0;
 
     height: 105%;
-    margin: -15px -15px 0 -15px;
-
-    content: '';
 
     background-image: url('/images/second-background.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    -webkit-filter: blur(15px);
 }
 .third-page:before
 {
-    position: fixed;
-    z-index: -1;
-    right: 0;
-    left: 0;
-
     height: 105%;
     margin: -70px -15px 0 -15px;
 
-    content: '';
-
     background-image: url('/images/third-background.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    -webkit-filter: blur(15px);
 }
 .fourth-page:before
 {
-    position: fixed;
-    z-index: -1;
-    right: 0;
-    left: 0;
 
     height: 105%;
     margin: -70px -15px 0 -15px;
 
-    content: '';
-
     background-image: url('/images/fourth-background.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    -webkit-filter: blur(15px);
 }
 .first-page .description,
 .second-page .description
@@ -1031,15 +1002,20 @@ section
 }
 .fourth-page .content
 {
-    width: 35%;
-    margin: 20% auto;
-
+    width: 45%;
+    margin: 15% auto;
     text-align: center;
 }
 .fourth-page .content h1
 {
     font-size: 40px;
     font-weight: bold;
+    margin-bottom: 20px;
+}
+.fourth-page .content h2
+{
+
+    line-height: 1.6;
 }
 .fourth-page .content input
 {
@@ -1070,6 +1046,24 @@ section
     border: 1px rgba(62, 57, 57, .5) solid;
     border-left-width: 0;
     border-radius: 0 5px 5px 0;
+    background-color: rgba(255,255,255, .2);
+}
+.fourth-page .contribute
+{
+    margin-bottom: 20px;
+    margin-top: 35px;
+}
+
+hr {
+   display: block; height: 1px;
+    border-width: 0; border-top: 1px solid #fff;
+    margin: 1em 0; padding: 0; 
+    margin-top: 35px;
+}
+.fourth-page .contribute a
+{   
+    border: 3px rgba(255, 255, 255, 0.5) solid;
+    border-radius: 5px;
     background-color: rgba(255,255,255, .2);
 }
 .fourth-page .content small

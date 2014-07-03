@@ -11,15 +11,10 @@
   <script src="/bower_components/onepage-scroll/jquery.onepage-scroll.min.js"></script>
   <script src="javascripts/respond.js"></script>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
- <script type="text/javascript" src="//cdn.firebase.com/js/client/1.0.17/firebase.js"></script>
+  <script type="text/javascript" src="//cdn.firebase.com/js/client/1.0.17/firebase.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<style type="text/css">
-  section:before {
-            filter: url(#blur-effect-1);
-  }
-  </style>
   <script>
-       $(document).ready(function () {
+    $(document).ready(function () {
       $(".main").onepage_scroll({
         sectionContainer: "section",
         easing: "ease",
@@ -33,11 +28,11 @@
         responsiveFallback: true,
         direction: "vertical"
       });
-         if( $.cookie('_e')) {
-           $('a.notify').html('<i class="fa fa-check"></i>');
-           $('input.email').val($.cookie('_e'));
-           $('input.email').attr('disabled', true);
-         }
+      if ($.cookie('_e')) {
+        $('a.notify').html('<i class="fa fa-check"></i>');
+        $('input.email').val($.cookie('_e'));
+        $('input.email').attr('disabled', true);
+      }
       $('a.notify').on('click', function () {
         if (!$.cookie('_e') || $.cookie('_e') === '') {
           var fb = new Firebase('https://push-opencubes.firebaseio.com/');
@@ -48,9 +43,9 @@
             expires: 365,
             path: '/'
           });
-           $('a.notify').html('<i class="fa fa-check"></i>');
-           $('input.email').val($.cookie('_e'));
-           $('input.email').attr('disabled', true);
+          $('a.notify').html('<i class="fa fa-check"></i>');
+          $('input.email').val($.cookie('_e'));
+          $('input.email').attr('disabled', true);
         }
         return false;
 
@@ -109,7 +104,7 @@
           </div>
         </div>
       </div>
-       <a href="#4" class="scroll-down">
+      <a href="#4" class="scroll-down">
         <i class="fa fa-chevron-circle-down"></i> Keep scrolling...
       </a>
     </section>
@@ -118,20 +113,26 @@
         <h1>OpenCubes is still in development.</h1>
         <div class="send">
           <h2>Leave us your email here to be notified when it's ready</h2>
-          <input class="email" type="email"/>
+          <input class="email" type="email" />
           <a href="#" class="notify">Notify me!</a>
           <br />
           <small>Don't worry we don't spam!</small>
         </div>
+        <hr />
+        <div class="contribute">
+          <h2>OpenCubes is a community, so everyone including <b>you</b> can contribute: whether it is for a typo or a new feature, we <i class="fa fa-heart-o"></i> Pull Requests.
+          </h2>
+         <br />
+         <br />
+         <br />
+          <a href="https://github.com/OpenCubes/OpenCubes" class="github"><i class="fa fa-github"></i> Check out the repo</a>
+         
+        </div>
       </div>
+      
     </section>
   </div>
 
-<svg id="svg-image-blur">
-    <filter id="blur-effect-1">
-        <feGaussianBlur stdDeviation="15" />
-    </filter>
-</svg>
   <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 
 </body>
