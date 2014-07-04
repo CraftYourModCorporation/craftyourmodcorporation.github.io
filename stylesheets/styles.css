@@ -834,16 +834,16 @@ section:before
     right: 0;
     left: 0;
 
-    height: 105%;
+    height: 100%;
     margin: -15px -15px 0 -15px;
-
     content: '';
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-
-    -webkit-filter: blur(15px);
-    filter: url('/blur.svg#blur');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     
     
 }
@@ -851,29 +851,33 @@ section:before
 {
 
     background-image: url('/images/first-background2.png');
+    background-color: #d9e5eb;
+    height: 95%;
 }
 
 
 .second-page:before
 {
 
-    height: 105%;
-
+    height: 110%;
+    margin-top: -65px;
     background-image: url('/images/second-background.png');
+    background-color: #e2b431;
 }
 .third-page:before
 {
-    height: 105%;
-    margin: -70px -15px 0 -15px;
-
+    height: 100%;
+    margin-top: -100px;
+    
     background-image: url('/images/third-background.png');
+    background-color: #fcf7d8
 }
 .fourth-page:before
 {
 
-    height: 105%;
+    height: 110%;
     margin: -70px -15px 0 -15px;
-
+    background-color: #483c26;
     background-image: url('/images/fourth-background.png');
 }
 .first-page .description,
@@ -915,14 +919,15 @@ section:before
     font-family: 'Open Sans';
 
     position: absolute;
-    bottom: 50px;
-    left: 42.5%;
+    bottom: 75px;
+    left: 43%;
 
     padding: 20px 50px;
 
     color: #fff;
     border-radius: 40px;
     background-color: rgba(0,0,0, .5);
+    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.6);
 }
 .third-page .scroll-down
 {
@@ -976,7 +981,7 @@ section:before
     width: 33%;
     margin-left: 15%;
 
-    text-align: right;;
+    text-align: right;
 }
 .third-page h2
 {
@@ -990,6 +995,7 @@ section:before
     float: left;
 
     width: 50%;
+    margin-top: -60px;
 }
 .third-page .sl-2 div
 {
@@ -997,7 +1003,7 @@ section:before
 
     width: 33%;
     margin-right: 15%;
-
+    margin-top: -60px;
     text-align: left;
 }
 .fourth-page .content
@@ -1011,11 +1017,14 @@ section:before
     font-size: 40px;
     font-weight: bold;
     margin-bottom: 20px;
+    
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
 }
 .fourth-page .content h2
 {
 
     line-height: 1.6;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
 }
 .fourth-page .content input
 {
@@ -1034,7 +1043,7 @@ section:before
        -moz-box-shadow: inset 0 0 5px 5px rgba(50, 50, 50, .1);
             box-shadow: inset 0 0 5px 5px rgba(50, 50, 50, .1);
 }
-.fourth-page .content a
+.fourth-page .content .send a, a.github
 {
     font-family: 'Open Sans';
     font-size: 20px;
@@ -1066,10 +1075,26 @@ hr {
     border-radius: 5px;
     background-color: rgba(255,255,255, .2);
 }
+.fourth-page .contribute b{ 
+    text-shadow: 0px 0px 18px rgba(255, 255, 255, 1);
+  
+}
 .fourth-page .content small
 {
     font-family: 'Open Sans';
     font-size: 14px;
 
     color: #fff;
+}
+.copyrights {
+    margin-top: 150px;
+    font-family: "Open Sans";
+    color: #fff;
+    font-size: 15px;
+}
+.copyrights a{
+    font-family: "Open Sans";
+    color: #fff;
+    font-size: 15px ;
+    border-bottom: 1px rgba(255, 255, 255, 0.51) dotted;
 }

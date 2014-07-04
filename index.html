@@ -33,6 +33,9 @@
         $('input.email').val($.cookie('_e'));
         $('input.email').attr('disabled', true);
       }
+      $('body').on('click', '.scroll-down', function() {
+         $(".main").moveDown();
+      });
       $('a.notify').on('click', function () {
         if (!$.cookie('_e') || $.cookie('_e') === '') {
           var fb = new Firebase('https://push-opencubes.firebaseio.com/');
@@ -67,7 +70,7 @@
       <div class="description">
         <h1>The Minecraft Mod Marketplace</h1>
         <div>
-          OpenCubes is a web application where modders can submit there mod easily and players are able to browse them (including filtering and sorting) and download them
+          OpenCubes is a web application where modders can submit their mods easily and players are able to browse them (including filtering and sorting) and download them.
         </div>
       </div>
       <a href="#2" class="scroll-down">
@@ -120,7 +123,7 @@
         </div>
         <hr />
         <div class="contribute">
-          <h2>OpenCubes is a community, so everyone including <b>you</b> can contribute: whether it is for a typo or a new feature, we <i class="fa fa-heart-o"></i> Pull Requests.
+          <h2>OpenCubes is an open community, so everyone can get involved without knowledge: whether it is for a typo, a fix or a new feature, we <i class="fa fa-heart-o"></i> Pull Requests!
           </h2>
          <br />
          <br />
@@ -128,6 +131,8 @@
           <a href="https://github.com/OpenCubes/OpenCubes" class="github"><i class="fa fa-github"></i> Check out the repo</a>
          
         </div>
+        <div class="copyrights">&copy; 2014 OpenCubes - <a href="http://www.minecraftforum.net/forums/show-your-creation/videos/1634714-30-minecraft-wallpapers-giveaway-free-download">background images</a> by <a href="https://www.youtube.com/user/UniblueMedia">Thomas Angeland, Uniblue Media</a> - <a href="http://www.premiumpixels.com/freebies/simple-browser-surround-psd/">Simple Browser Surround PSD</a> by <a href="http://www.premiumpixels.com/">Premium Pixels</a>, Orman Clark</div>
+        
       </div>
       
     </section>
