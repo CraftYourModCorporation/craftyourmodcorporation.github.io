@@ -28,31 +28,24 @@
         responsiveFallback: true,
         direction: "vertical"
       });
-      if ($.cookie('_e')) {
-        $('a.notify').html('<i class="fa fa-check"></i>');
-        $('input.email').val($.cookie('_e'));
-        $('input.email').attr('disabled', true);
-      }
       $('body').on('click', '.scroll-down', function() {
          $(".main").moveDown();
       });
       $('a.notify').on('click', function () {
-        if (!$.cookie('_e') || $.cookie('_e') === '') {
+          var providers = ['gmail.com','yahoo.com','hotmail.com','aol.com','columbus.rr.com','sbcglobal.net','comcast.net','msn.com','insight.rr.com','earthlink.net','wowway.com','att.net','live.com','terra.com.br','verizon.net','mac.com','roadrunner.com','juno.com','me.com','windstream.net','wideopenwest.com','neo.rr.com','bigpond.com','embarqmail.com','uol.com.br','yahoo.com.br','alltel.net','netzero.com','ymail.com','adelphia.net','bellsouth.net','bigpond.net.au','woh.rr.com','ig.com.br','netzero.net','optusnet.com.au','peoplepc.com','austin.rr.com','ameritech.net','cox.net','rocketmail.com','zoominternet.net','hughes.net','yahoo.co.uk','hotmail.co.uk','mindspring.com','charter.net','adfarrow.com','frontier.com','googlemail.com','bright.net','ozemail.com.au','bol.com.br','excite.com','seanet.com','fuse.net','aim.com','iinet.net.au','bigpond.com.au','rrohio.com','prodigy.net','iprimus.com.au','riopreto.com.br','tpg.com.au','cs.com','pacific-re.com','columbusrr.com'];
+          if($('input.email').val() === '' ) {
+             alert('please enter a valid email');
+            return;
+          }
           var fb = new Firebase('https://push-opencubes.firebaseio.com/');
           fb.push().set({
             'email': $('input.email').val()
           });
-          $.cookie('_e', $('input.email').val(), {
-            expires: 365,
-            path: '/'
-          });
           $('a.notify').html('<i class="fa fa-check"></i>');
-          $('input.email').val($.cookie('_e'));
-          $('input.email').attr('disabled', true);
-        }
+
         return false;
 
-      });
+    });
     });
   </script>
   <script>
