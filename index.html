@@ -13,6 +13,8 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <script type="text/javascript" src="//cdn.firebase.com/js/client/1.0.17/firebase.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  
+<script src="/bower_components/mailcheck/src/mailcheck.min.js"></script>
   <script>
     $(document).ready(function () {
       $(".main").onepage_scroll({
@@ -28,36 +30,70 @@
         responsiveFallback: true,
         direction: "vertical"
       });
-      $('body').on('click', '.scroll-down', function() {
-         $(".main").moveDown();
+      $('body').on('click', '.scroll-down', function () {
+        $(".main").moveDown();
       });
+     
+         var domains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'aol.com', 'columbus.rr.com', 'sbcglobal.net', 'comcast.net', 'msn.com', 'insight.rr.com', 'earthlink.net', 'wowway.com', 'att.net', 'live.com', 'terra.com.br', 'verizon.net', 'mac.com', 'roadrunner.com', 'juno.com', 'me.com', 'windstream.net', 'wideopenwest.com', 'neo.rr.com', 'bigpond.com', 'embarqmail.com', 'uol.com.br', 'yahoo.com.br', 'alltel.net', 'netzero.com', 'ymail.com', 'adelphia.net', 'bellsouth.net', 'bigpond.net.au', 'woh.rr.com', 'ig.com.br', 'netzero.net', 'optusnet.com.au', 'peoplepc.com', 'austin.rr.com', 'ameritech.net', 'cox.net', 'rocketmail.com', 'zoominternet.net', 'hughes.net', 'yahoo.co.uk', 'hotmail.co.uk', 'mindspring.com', 'charter.net', 'adfarrow.com', 'frontier.com', 'googlemail.com', 'bright.net', 'ozemail.com.au', 'bol.com.br', 'excite.com', 'seanet.com', 'fuse.net', 'aim.com', 'iinet.net.au', 'bigpond.com.au', 'rrohio.com', 'prodigy.net', 'iprimus.com.au', 'riopreto.com.br', 'tpg.com.au', 'cs.com', 'pacific-re.com', 'columbusrr.com'];
+$('.email').on('input', function() {
+  $(this).mailcheck({
+    domains: domains,                       // optional
+    topLevelDomains: domains,       // optional
+   // distanceFunction: superStringDistance,  // optional
+    suggested: function(element, suggestion) {
+      $('.fourth-page .content small').html('Did you mean <a href="#"  class="suggestion"  onclick="$(\'.email\').val(\''+suggestion.full+'\')">'+suggestion.full+'</a>?');
+    },
+    empty: function(element) {
+      // callback code
+    }
+  });
+});
       $('a.notify').on('click', function () {
-          var providers = ['gmail.com','yahoo.com','hotmail.com','aol.com','columbus.rr.com','sbcglobal.net','comcast.net','msn.com','insight.rr.com','earthlink.net','wowway.com','att.net','live.com','terra.com.br','verizon.net','mac.com','roadrunner.com','juno.com','me.com','windstream.net','wideopenwest.com','neo.rr.com','bigpond.com','embarqmail.com','uol.com.br','yahoo.com.br','alltel.net','netzero.com','ymail.com','adelphia.net','bellsouth.net','bigpond.net.au','woh.rr.com','ig.com.br','netzero.net','optusnet.com.au','peoplepc.com','austin.rr.com','ameritech.net','cox.net','rocketmail.com','zoominternet.net','hughes.net','yahoo.co.uk','hotmail.co.uk','mindspring.com','charter.net','adfarrow.com','frontier.com','googlemail.com','bright.net','ozemail.com.au','bol.com.br','excite.com','seanet.com','fuse.net','aim.com','iinet.net.au','bigpond.com.au','rrohio.com','prodigy.net','iprimus.com.au','riopreto.com.br','tpg.com.au','cs.com','pacific-re.com','columbusrr.com'];
-          if($('input.email').val() === '' ) {
-             alert('please enter a valid email');
-            return;
-          }
-          var fb = new Firebase('https://push-opencubes.firebaseio.com/');
-          fb.push().set({
-            'email': $('input.email').val()
-          });
-          $('a.notify').html('<i class="fa fa-check"></i>');
+     
+$('#email').on('blur', function() {
+  $(this).mailcheck({
+    domains: domains,                       // optional
+    topLevelDomains: topLevelDomains,       // optional
+    distanceFunction: superStringDistance,  // optional
+    suggested: function(element, suggestion) {
+      console.log
+    },
+    empty: function(element) {
+      // callback code
+    }
+  });
+});
+        if ($('input.email').val() === '') {
+          alert('please enter a valid email');
+          return;
+        }
+        var fb = new Firebase('https://push-opencubes.firebaseio.com/');
+        fb.push().set({
+          'email': $('input.email').val()
+        });
+        $('a.notify').html('<i class="fa fa-check"></i>');
 
         return false;
 
-    });
+      });
     });
   </script>
   <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-42436934-5', 'auto');
-  ga('send', 'pageview');
-
-</script>
+    ga('create', 'UA-42436934-5', 'auto');
+    ga('send', 'pageview');
+  </script>
   <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -122,22 +158,23 @@
           <input class="email" type="email" />
           <a href="#" class="notify">Notify me!</a>
           <br />
+          <br />
           <small>Don't worry we don't spam!</small>
         </div>
         <hr />
         <div class="contribute">
           <h2>OpenCubes is an open community, so everyone can get involved without knowledge: whether it is for a typo, a fix or a new feature, we <i class="fa fa-heart-o"></i> Pull Requests!
           </h2>
-         <br />
-         <br />
-         <br />
+          <br />
+          <br />
+          <br />
           <a href="https://github.com/OpenCubes/OpenCubes" class="github"><i class="fa fa-github"></i> Check out the repo</a>
-         
+
         </div>
         <div class="copyrights">&copy; 2014 OpenCubes - <a href="http://www.minecraftforum.net/forums/show-your-creation/videos/1634714-30-minecraft-wallpapers-giveaway-free-download">background images</a> by <a href="https://www.youtube.com/user/UniblueMedia">Thomas Angeland, Uniblue Media</a> - <a href="http://www.premiumpixels.com/freebies/simple-browser-surround-psd/">Simple Browser Surround PSD</a> by <a href="http://www.premiumpixels.com/">Premium Pixels</a>, Orman Clark</div>
-        
+
       </div>
-      
+
     </section>
   </div>
 
