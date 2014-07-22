@@ -13,8 +13,8 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <script type="text/javascript" src="//cdn.firebase.com/js/client/1.0.17/firebase.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-  
-<script src="/bower_components/mailcheck/src/mailcheck.min.js"></script>
+
+  <script src="/bower_components/mailcheck/src/mailcheck.min.js"></script>
   <script>
     $(document).ready(function () {
       $(".main").onepage_scroll({
@@ -33,36 +33,36 @@
       $('body').on('click', '.scroll-down', function () {
         $(".main").moveDown();
       });
-     
-         var domains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'aol.com', 'columbus.rr.com', 'sbcglobal.net', 'comcast.net', 'msn.com', 'insight.rr.com', 'earthlink.net', 'wowway.com', 'att.net', 'live.com', 'terra.com.br', 'verizon.net', 'mac.com', 'roadrunner.com', 'juno.com', 'me.com', 'windstream.net', 'wideopenwest.com', 'neo.rr.com', 'bigpond.com', 'embarqmail.com', 'uol.com.br', 'yahoo.com.br', 'alltel.net', 'netzero.com', 'ymail.com', 'adelphia.net', 'bellsouth.net', 'bigpond.net.au', 'woh.rr.com', 'ig.com.br', 'netzero.net', 'optusnet.com.au', 'peoplepc.com', 'austin.rr.com', 'ameritech.net', 'cox.net', 'rocketmail.com', 'zoominternet.net', 'hughes.net', 'yahoo.co.uk', 'hotmail.co.uk', 'mindspring.com', 'charter.net', 'adfarrow.com', 'frontier.com', 'googlemail.com', 'bright.net', 'ozemail.com.au', 'bol.com.br', 'excite.com', 'seanet.com', 'fuse.net', 'aim.com', 'iinet.net.au', 'bigpond.com.au', 'rrohio.com', 'prodigy.net', 'iprimus.com.au', 'riopreto.com.br', 'tpg.com.au', 'cs.com', 'pacific-re.com', 'columbusrr.com'];
-$('.email').on('input', function() {
-  $(this).mailcheck({
-    domains: domains,                       // optional
-    topLevelDomains: domains,       // optional
-   // distanceFunction: superStringDistance,  // optional
-    suggested: function(element, suggestion) {
-      $('.fourth-page .content small').html('Did you mean <a href="#"  class="suggestion"  onclick="$(\'.email\').val(\''+suggestion.full+'\')">'+suggestion.full+'</a>?');
-    },
-    empty: function(element) {
-      // callback code
-    }
-  });
-});
+
+      var domains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'aol.com', 'columbus.rr.com', 'sbcglobal.net', 'comcast.net', 'msn.com', 'insight.rr.com', 'earthlink.net', 'wowway.com', 'att.net', 'live.com', 'terra.com.br', 'verizon.net', 'mac.com', 'roadrunner.com', 'juno.com', 'me.com', 'windstream.net', 'wideopenwest.com', 'neo.rr.com', 'bigpond.com', 'embarqmail.com', 'uol.com.br', 'yahoo.com.br', 'alltel.net', 'netzero.com', 'ymail.com', 'adelphia.net', 'bellsouth.net', 'bigpond.net.au', 'woh.rr.com', 'ig.com.br', 'netzero.net', 'optusnet.com.au', 'peoplepc.com', 'austin.rr.com', 'ameritech.net', 'cox.net', 'rocketmail.com', 'zoominternet.net', 'hughes.net', 'yahoo.co.uk', 'hotmail.co.uk', 'mindspring.com', 'charter.net', 'adfarrow.com', 'frontier.com', 'googlemail.com', 'bright.net', 'ozemail.com.au', 'bol.com.br', 'excite.com', 'seanet.com', 'fuse.net', 'aim.com', 'iinet.net.au', 'bigpond.com.au', 'rrohio.com', 'prodigy.net', 'iprimus.com.au', 'riopreto.com.br', 'tpg.com.au', 'cs.com', 'pacific-re.com', 'columbusrr.com'];
+      $('.email').on('input', function () {
+        $(this).mailcheck({
+          domains: domains, // optional
+          topLevelDomains: domains, // optional
+          // distanceFunction: superStringDistance,  // optional
+          suggested: function (element, suggestion) {
+            $('.fourth-page .content small').html('Did you mean <a href="#"  class="suggestion"  onclick="$(\'.email\').val(\'' + suggestion.full + '\')">' + suggestion.full + '</a>?');
+          },
+          empty: function (element) {
+            // callback code
+          }
+        });
+      });
       $('a.notify').on('click', function () {
-     
-$('#email').on('blur', function() {
-  $(this).mailcheck({
-    domains: domains,                       // optional
-    topLevelDomains: topLevelDomains,       // optional
-    distanceFunction: superStringDistance,  // optional
-    suggested: function(element, suggestion) {
-      console.log
-    },
-    empty: function(element) {
-      // callback code
-    }
-  });
-});
+
+        $('#email').on('blur', function () {
+          $(this).mailcheck({
+            domains: domains, // optional
+            topLevelDomains: topLevelDomains, // optional
+            distanceFunction: superStringDistance, // optional
+            suggested: function (element, suggestion) {
+              console.log
+            },
+            empty: function (element) {
+              // callback code
+            }
+          });
+        });
         if ($('input.email').val() === '') {
           alert('please enter a valid email');
           return;
@@ -76,6 +76,13 @@ $('#email').on('blur', function() {
         return false;
 
       });
+      var isFirefox = typeof InstallTrigger !== 'undefined';
+      if(isFirefox) {
+        $('.warning').animate({top: 0});
+        $('.warning').on('click', function() {
+          $('.warning').animate({top: '-100px'});
+        });
+      }
     });
   </script>
   <script>
@@ -106,6 +113,7 @@ $('#email').on('blur', function() {
 <body>
   <div class="main">
     <section class="first-page">
+      <div class="warning">You are using an awesome browser but our site, for an unknown reason, is encountering some problems on Firefox. If you see a blank background, please press F5 to refresh the page and fix it. Click here to dismiss. </div>
       <div class="description">
         <h1>The Minecraft Mod Marketplace</h1>
         <div>
